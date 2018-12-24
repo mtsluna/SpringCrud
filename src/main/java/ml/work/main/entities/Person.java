@@ -4,9 +4,12 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +33,8 @@ public class Person {
 	@Column(name = "person_sex")
 	private String sex;
 	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id")
 	@Column(name = "person_province_id")
 	private Province province;
 	
